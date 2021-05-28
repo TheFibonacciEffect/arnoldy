@@ -41,7 +41,7 @@ def eig(A):
     vects = np.zeros((guesses,dim))
     for k, l in enumerate(vals):
         # This only returns the biggest and smallest eigenvalue, not the ones in between
-        vects[k] = get_largest(A + l*np.eye(dim))
+        vects[k] = get_smallest(A - l*np.eye(dim))
         vals[k] = eigval(A, vects[k])
     print(f"eigvals {vals}")
     
