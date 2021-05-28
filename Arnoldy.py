@@ -11,6 +11,10 @@ def get_largest(A):
 
 def get_smallest(A):
     # es gibt probleme, falls einer der eigenwerte 0 ist
+    if spl.det(A) == 0:
+        V, K, Vt = spl.svd(A)
+        return V[:,-1]
+
     n = 50
     LUP = spl.lu_factor(A)
     dim = A.shape[0]
